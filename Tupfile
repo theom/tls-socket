@@ -1,0 +1,7 @@
+include_rules
+
+ldflags += -lbotan-2
+
+: foreach *.cpp |> !cc |>
+: client.o tls_socket.o tls_client_socket.o |> clang++ %f -o %o $(ldflags) |> client
+: server.o tls_socket.o tls_server_socket.o |> clang++ %f -o %o $(ldflags) |> server

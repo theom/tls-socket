@@ -1,0 +1,8 @@
+
+.gitignore
+
+cflags += -std=c++17
+cflags += -I/usr/include/botan-2
+
+!cc = |> clang++ $(cflags) -c %f -o %o |> %B.o
+
